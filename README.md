@@ -67,3 +67,26 @@ Once all tests are passing and working code is pushed to the GitHub main branch,
 The application passes all test suites.
 * Get json data
 * Convert to Json
+
+## Usage
+
+- The project provides a `GetRequester` class in `lib/GetRequester.py` that accepts a URL and exposes two methods:
+  - `get_response_body()` — returns the raw response body as bytes.
+  - `load_json()` — returns the decoded JSON as Python objects (lists/dicts).
+
+Example:
+
+```python
+from GetRequester import GetRequester
+
+url = 'https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json'
+req = GetRequester(url)
+raw = req.get_response_body()    # bytes
+data = req.load_json()           # Python list/dict
+```
+
+All tests in `lib/testing` pass locally (`pytest`): 2 passed.
+
+Add a screenshot of the passing tests below (replace this placeholder with an actual image):
+
+![tests-passing](docs/tests-passing-screenshot.png)
